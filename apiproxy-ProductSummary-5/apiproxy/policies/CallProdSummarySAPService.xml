@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="CallProdSummarySAPService">
+    <DisplayName>CallProdSummarySAPService</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="sap.target.request">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>sap.target.response</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>http://{sap.target.prodsummary.endpoint.hostPort}/{sap.target.prodsummary.endpoint.path}</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

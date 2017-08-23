@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<XMLToJSON async="false" continueOnError="false" enabled="true" name="ConvertResponseXmlToJson">
+    <DisplayName>ConvertResponseXmlToJson</DisplayName>
+    <Properties/>
+    <Source>sap.target.response</Source>
+    <Options>
+        <RecognizeNumber>true</RecognizeNumber>
+        <RecognizeBoolean>true</RecognizeBoolean>
+        <RecognizeNull>true</RecognizeNull>
+        <NullValue>NULL</NullValue>
+        <TextNodeName>TEXT</TextNodeName>
+        <StripLevels>1</StripLevels>
+    </Options>
+    <OutputVariable>sap.json.response</OutputVariable>
+</XMLToJSON>

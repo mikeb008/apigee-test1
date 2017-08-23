@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="RetrieveConfig" mapIdentifier="ProductSummary">
+    <DisplayName>RetrieveConfig</DisplayName>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries>
+        <Entry>
+            <Key>
+                <Parameter>sap.target.prodsummary.endpoint.hostPort</Parameter>
+            </Key>
+            <Value>dbdbsdci01.discoverybank.co.za:8000</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>sap.target.prodsummary.endpoint.path</Parameter>
+            </Key>
+            <Value>sap/bc/srt/xip/sap/bacp_query_bacor_in/100/bacp_query_bacor_in/bacp_query_bacor_in</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>sap.target.username</Parameter>
+            </Key>
+            <Value>S000043</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>sap.target.password</Parameter>
+            </Key>
+            <Value>Ap1g33@SAP</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>sap.mapping.currentAccountCode</Parameter>
+            </Key>
+            <Value>874</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>sap.mapping.loanAccountCode</Parameter>
+            </Key>
+            <Value>474</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>sap.mapping.depositAccountCode</Parameter>
+            </Key>
+            <Value>875</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>sap.mapping.defaultCurrency</Parameter>
+            </Key>
+            <Value>ZAR</Value>
+        </Entry>
+        <Entry>
+            <Key>
+                <Parameter>traffic.enableSpikeArrest</Parameter>
+            </Key>
+            <Value>false</Value>
+        </Entry>
+    </InitialEntries>
+    <Get assignTo="sap.target.prodsummary.endpoint.hostPort" index="1">
+        <Key>
+            <Parameter>sap.target.prodsummary.endpoint.hostPort</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="sap.target.prodsummary.endpoint.path" index="1">
+        <Key>
+            <Parameter>sap.target.prodsummary.endpoint.path</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="sap.target.endpoint" index="1">
+        <Key>
+            <Parameter>sap.target.endpoint</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="sap.target.username" index="1">
+        <Key>
+            <Parameter>sap.target.username</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="sap.target.password">
+        <Key>
+            <Parameter>sap.target.password</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="CURRENT_ACCOUNT">
+        <Key>
+            <Parameter>sap.mapping.currentAccountCode</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="LOAN_ACCOUNT">
+        <Key>
+            <Parameter>sap.mapping.loanAccountCode</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="DEPOSIT_ACCOUNT">
+        <Key>
+            <Parameter>sap.mapping.depositAccountCode</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="DEFAULT_CURRENCY">
+        <Key>
+            <Parameter>sap.mapping.defaultCurrency</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="traffic.enableSpikeArrest">
+        <Key>
+            <Parameter>traffic.enableSpikeArrest</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

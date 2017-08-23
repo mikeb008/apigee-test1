@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractAccountsPutParameters">
+    <Source>request</Source>
+    <DisplayName>ExtractAccountsPutParameters</DisplayName>
+    <URIPath>
+        <Pattern ignoreCase="true">/*/{sap.target.clientId}</Pattern>
+    </URIPath>
+    <QueryParam name="accountId">
+        <Pattern>{sap.target.accountId}</Pattern>
+    </QueryParam>
+    <QueryParam name="alias">
+        <Pattern>{sap.target.accountAlias}</Pattern>
+    </QueryParam>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

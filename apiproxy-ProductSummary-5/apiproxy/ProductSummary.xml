@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="5" name="ProductSummary">
+    <Basepaths>/v1/productsummary</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1493190673611</CreatedAt>
+    <CreatedBy>Robert.Ngetich@ic.discovery.co.za</CreatedBy>
+    <Description>The Product Summary API</Description>
+    <DisplayName>ProductSummary</DisplayName>
+    <LastModifiedAt>1493190741147</LastModifiedAt>
+    <LastModifiedBy>Robert.Ngetich@ic.discovery.co.za</LastModifiedBy>
+    <Policies>
+        <Policy>AuthenticateToSAP</Policy>
+        <Policy>BuildProdSummarySAPRequest</Policy>
+        <Policy>CallProdSummarySAPService</Policy>
+        <Policy>Common</Policy>
+        <Policy>ConvertResponseXmlToJson</Policy>
+        <Policy>ExtractAccountsPutParameters</Policy>
+        <Policy>ExtractProdSummaryParameters</Policy>
+        <Policy>ExtractRequestVariables</Policy>
+        <Policy>Forbidden</Policy>
+        <Policy>InternalServerError</Policy>
+        <Policy>NotFound</Policy>
+        <Policy>PrintStuff</Policy>
+        <Policy>RetrieveConfig</Policy>
+        <Policy>SetTargetVars</Policy>
+        <Policy>Spike-Arrest</Policy>
+        <Policy>Swagger</Policy>
+        <Policy>Unauthorized</Policy>
+        <Policy>UnhandledRequest</Policy>
+        <Policy>UnprocessableEntity</Policy>
+        <Policy>ValidateSAPSoapCall</Policy>
+        <Policy>get-openapi-response</Policy>
+        <Policy>productSummary-response</Policy>
+        <Policy>productSummaryCreditAccounts-response</Policy>
+        <Policy>productSummaryDebitAccounts-response</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>wsdl://bacp_query_bacor_in.wsdl</Resource>
+        <Resource>openapi://association.json</Resource>
+        <Resource>jsc://Common.js</Resource>
+        <Resource>jsc://PrintStuff.js</Resource>
+        <Resource>jsc://SetTargetVars.js</Resource>
+        <Resource>jsc://Swagger.js</Resource>
+        <Resource>jsc://get-openapi-response.js</Resource>
+        <Resource>jsc://productSummary-response.js</Resource>
+        <Resource>jsc://productSummaryCreditAccounts-response.js</Resource>
+        <Resource>jsc://productSummaryDebitAccounts-response.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+    <validate>false</validate>
+</APIProxy>

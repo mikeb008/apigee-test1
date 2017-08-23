@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageValidation async="false" continueOnError="false" enabled="true" name="ValidateSAPSoapCall">
+    <DisplayName>ValidateSAPSoapCall</DisplayName>
+    <Source>sap.target.request</Source>
+    <ResourceURL>wsdl://bacp_query_bacor_in.wsdl</ResourceURL>
+    <SOAPMessage version="1.1/1.2"/>
+    <Element namespace="http://schemas.xmlsoap.org/soap/envelope/">Envelope</Element>
+    <Element namespace="http://sap.com/xi/SAPGlobal20/Global">BankAccountContractOverviewRetrievalFSByElementsQuery</Element>
+</MessageValidation>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="BuildProdSummarySAPRequest">
+    <DisplayName>BuildProdSummarySAPRequest</DisplayName>
+    <Set>
+        <Headers>
+            <Header name="Authorization">{request.header.Authorization}</Header>
+            <Header name="Content-Type">text/xml;charset=UTF-8</Header>
+        </Headers>
+        <QueryParams/>
+        <FormParams/>
+        <Verb>POST</Verb>
+        <Payload>
+            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global">
+                <soapenv:Header/>
+                <soapenv:Body>
+                    <glob:BankAccountContractOverviewRetrievalFSByElementsQuery>
+                        <MessageHeader>
+                            <UUID>{sap.target.uuid}</UUID>
+                            <CreationDateTime>{sap.target.createDateTime}</CreationDateTime>
+                        </MessageHeader>
+                        <BankAccountContractOverviewRetrievalSelection>
+                            <PartyIdentifyingElements>
+                                <PartyKey>
+                                    <PartyID>{sap.target.clientId}</PartyID>
+                                </PartyKey>
+                            </PartyIdentifyingElements>
+                        </BankAccountContractOverviewRetrievalSelection>
+                        <!--Optional:-->
+                        <ResponseViewSpecification>
+                            <BalanceKeyFigure>
+                                <RequestedIndicator>true</RequestedIndicator>
+                            </BalanceKeyFigure>
+                        </ResponseViewSpecification>
+                    </glob:BankAccountContractOverviewRetrievalFSByElementsQuery>
+                </soapenv:Body>
+            </soapenv:Envelope>
+        </Payload>
+        <Path/>
+    </Set>
+    <AssignTo createNew="true" transport="http" type="request">sap.target.request</AssignTo>
+</AssignMessage>

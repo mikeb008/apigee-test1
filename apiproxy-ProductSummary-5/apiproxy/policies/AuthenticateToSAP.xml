@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BasicAuthentication async="false" continueOnError="false" enabled="true" name="AuthenticateToSAP">
+    <DisplayName>AuthenticateToSAP</DisplayName>
+    <Operation>Encode</Operation>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <User ref="sap.target.username">sap.target.username</User>
+    <Password ref="sap.target.password"/>
+    <AssignTo createNew="false">request.header.Authorization</AssignTo>
+</BasicAuthentication>

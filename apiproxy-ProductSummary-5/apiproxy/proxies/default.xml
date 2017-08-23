@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>RetrieveConfig</Name>
+            </Step>
+            <Step>
+                <Condition>traffic.enableSpikeArrest = "true"</Condition>
+                <Name>Spike-Arrest</Name>
+            </Step>
+            <Step>
+                <Name>SetTargetVars</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <Condition>trigger400 equals "true"</Condition>
+                <Name>UnhandledRequest</Name>
+            </Step>
+            <Step>
+                <Condition>trigger403 equals "true"</Condition>
+                <Name>Forbidden</Name>
+            </Step>
+            <Step>
+                <Condition>trigger500 equals "true"</Condition>
+                <Name>InternalServerError</Name>
+            </Step>
+            <Step>
+                <Condition>trigger404 equals "true"</Condition>
+                <Name>NotFound</Name>
+            </Step>
+            <Step>
+                <Condition>trigger401 equals "true"</Condition>
+                <Name>Unauthorized</Name>
+            </Step>
+            <Step>
+                <Condition>trigger422 equals "true"</Condition>
+                <Name>UnprocessableEntity</Name>
+            </Step>
+        </Response>
+    </PostFlow>
+    <Flows>
+        <Flow name="get-openapi">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>Swagger</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>get-openapi-response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/openapi.json") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="productSummaryDebitAccounts">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>productSummaryDebitAccounts-response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/debitaccounts/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="productSummaryCreditAccounts">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>productSummaryCreditAccounts-response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/creditaccounts/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="productSummary">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>ExtractProdSummaryParameters</Name>
+                </Step>
+                <Step>
+                    <Name>AuthenticateToSAP</Name>
+                </Step>
+                <Step>
+                    <Name>BuildProdSummarySAPRequest</Name>
+                </Step>
+                <Step>
+                    <Name>ValidateSAPSoapCall</Name>
+                </Step>
+                <Step>
+                    <Name>CallProdSummarySAPService</Name>
+                </Step>
+                <Step>
+                    <Name>ConvertResponseXmlToJson</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>productSummary-response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="productSummaryAccounts">
+            <Description>Edit user editable properties of a single account.</Description>
+            <Request>
+                <Step>
+                    <Name>ExtractAccountsPutParameters</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/accounts/*") and (request.verb = "PUT")</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/v1/productsummary</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>
